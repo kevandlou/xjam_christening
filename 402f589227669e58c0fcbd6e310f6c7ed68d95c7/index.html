@@ -151,7 +151,7 @@ Car transfer service we’ve had experience with and were fine (pricing very tra
   <script async src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
   <script>
-    const converter = new showdown.Converter({'extensions': ['toc']});
+    var converter = new showdown.Converter({'extensions': ['toc']});
     converter.setOption('simplifiedAutoLink', true);
     converter.setOption('tables', true);
     converter.setOption('parseImgDimensions', true);
@@ -160,9 +160,7 @@ Car transfer service we’ve had experience with and were fine (pricing very tra
     };
     convert();
     hljs.initHighlightingOnLoad();
-    const all_links = $('a')
-
-    all_links.each(function() {
+    $('a').each(function() {
       if ($(this).prop('href').includes('#')) {
         console.log('skipping relative link '+$(this).prop('href'))
       } else {
