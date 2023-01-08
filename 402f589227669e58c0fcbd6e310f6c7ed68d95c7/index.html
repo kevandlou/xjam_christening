@@ -55,11 +55,15 @@ Here are all the details about Xavier’s Christening and the reception afterwar
 - <a href="#rsvp">RSVP at the bottom of the page</a> by May 1st
 - Add to your own calendar <a target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=MjA3YjBjOTdzdHRrM2ZkNnI4aXQwOGMyMjAga2V2aW5tYWRlckBt&amp;tmsrc=kevinmader%40gmail.com"><img border="0" src="https://www.google.com/calendar/images/ext/gc_button1_en.gif"></a>
 
-## Location
+**Overview**
+
+[toc]
+
+# Location
 
 The ceremony will be at St Ippolyts Church, Hitchin SG4 7PB. From the church we will walk to Gosmore for the garden party at Chimneys, SG4 7RL (or for those that prefer what 3 words, [guises certified served](https://w3w.co/guises.certified.served))
 
-## Timing of the day:
+# Timing of the day:
 
 - 12:15 Everyone seated in the church at St. Ippolyts
 - 12:30 Christening service starts
@@ -68,17 +72,17 @@ The ceremony will be at St Ippolyts Church, Hitchin SG4 7PB. From the church we 
 - 18:30 Carriages
 
 
-## Dress
+# Dress
 
 Smart-casual / Summer garden-party
 
-## Children
+# Children
 
 Children are very welcome - please include them on your RSVP. We will make sure there is appropriate food and entertainment for small people at the party. If you need somewhere for toddlers or babies to nap after the service, we can also offer a quiet place in the house.
 
 The christening service will be informal with lots of music. There is a small play area for children in the church, but feel free to come and go in and out of the church as needed.
 
-## Parking
+# Parking
 
 Parking at the church is extremely limited.
 
@@ -86,7 +90,7 @@ We recommend parking on the road near the house in Gosmore (we recommend on Mill
 
 Parking in Gosmore is also rather limited - we recommend car sharing where possible, or pooling and taking a taxi together.
 
-## Presents
+# Presents
 
 Xavier is fortunate to have more toys than waking hours to play with them all! So, rather than presents, we’d kindly like to ask you to make a charity donation.
 
@@ -139,22 +143,29 @@ Car transfer service we’ve had experience with and were fine (pricing very tra
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.3.0/showdown.min.js">
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+  <script src="toc.js"></script>
+  <script async src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
   <script>
-    var converter = new showdown.Converter();
+    const converter = new showdown.Converter({'extensions': ['toc']});
     converter.setOption('simplifiedAutoLink', true);
     converter.setOption('tables', true);
+    converter.setOption('parseImgDimensions', true);
     var convert = function() {
       $('#view').html(converter.makeHtml($('#markdowntext').val()));
     };
     convert();
-  </script>
-  <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
-
-  <script>
     hljs.initHighlightingOnLoad();
+    const all_links = $('a')
+
+    all_links.each(function() {
+      if ($(this).prop('href').includes('#')) {
+        console.log('skipping relative link '+$(this).prop('href'))
+      } else {
+        $(this).attr({ target: "_blank" });
+      }
+    });
   </script>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWZVTK2JN6"></script>
@@ -162,11 +173,7 @@ Car transfer service we’ve had experience with and were fine (pricing very tra
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-JWZVTK2JN6');
-</script>
-<script>
-  $('a').attr({ target: "_blank" });
   </script>
 </body>
 
